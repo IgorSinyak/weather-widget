@@ -7,12 +7,15 @@ import { WidgetComponent } from './widget/widget.component';
 import { WeatherListComponent } from './weather-list/weather-list.component';
 import { WeatherListItemComponent } from './weather-list-item/weather-list-item.component';
 
+import { WeatherIconUrlPipe } from './pipes/weather-icon-url.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     WidgetComponent,
     WeatherListComponent,
-    WeatherListItemComponent
+    WeatherListItemComponent,
+    WeatherIconUrlPipe
   ],
   imports: [
     BrowserModule,
