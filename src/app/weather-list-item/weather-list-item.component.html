@@ -1,0 +1,5 @@
+{{day.date | date:'EEEE, MMMM d'}}
+<div *ngFor="let weatherTime of day.weatherList" class="time-item">
+    <img src="{{'http://openweathermap.org/img/w/' + weatherTime.weather[0].icon + '.png'}}"/>
+    {{weatherTime.dateObj | date: 'HH:mm'}}
+</div>

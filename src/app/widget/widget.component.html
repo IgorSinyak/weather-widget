@@ -1,6 +1,6 @@
 <div *ngIf="weatherData">
     <h2>{{weatherData.city.name}}, {{weatherData.city.country}}</h2>
-    <ul class="days-list">
+    <!--<ul class="days-list">
         <li *ngFor="let day of daysList">
             {{day.date | date:'EEEE, MMMM d'}}
             <div *ngFor="let weatherTime of day.weatherList" class="time-item">
@@ -8,5 +8,6 @@
                 {{weatherTime.dateObj | date: 'HH:mm'}}
             </div>            
         </li>
-    </ul>
+    </ul>-->
+    <weather-list [daysList]="daysList"></weather-list>
 </div>

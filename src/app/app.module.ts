@@ -4,11 +4,15 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { WidgetComponent } from './widget/widget.component';
+import { WeatherListComponent } from './weather-list/weather-list.component';
+import { WeatherListItemComponent } from './weather-list-item/weather-list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WidgetComponent
+    WidgetComponent,
+    WeatherListComponent,
+    WeatherListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -17,4 +21,5 @@ import { WidgetComponent } from './widget/widget.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

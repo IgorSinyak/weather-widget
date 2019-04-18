@@ -11,7 +11,7 @@ import { OpenWeatherModel, WeatherDay } from '../open-weather-data.model';
 export class WidgetComponent implements OnInit {
     APIKEY = 'bf6d8515b71fe78339c1a582b2be986a';
     weatherData: OpenWeatherModel;
-    daysList = [];
+    daysList: Array<WeatherDay> = [];
 
     constructor(private httpClient: HttpClient) {
     }
@@ -34,12 +34,11 @@ export class WidgetComponent implements OnInit {
 
     getWeatherData(lat: number, lon: number) {
         let url = `http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${this.APIKEY}&lat=${lat}&lon=${lon}`;
-        this.httpClient.get(url).subscribe((data: OpenWeatherModel) => {            
-            console.log('data', data);
+        this.httpClient.get(url).subscribe((data: OpenWeatherModel) => {
             this.weatherData = data;
             data.list.forEach((item) => item.dateObj = new Date(item.dt_txt));
             while(data.list.length) {
-                let dayWeatherList = data.list.filter((item) => data.list[0].dateObj.toLocaleDateString() === item.dateObj.toLocaleDateString() ? true : false );
+                let dayWeatherList = data.list.filter((item) => data.list[0].dateObj.toLocaleDateString() === item.dateObj.toLocaleDateString());
                 let date = new Date(dayWeatherList[0].dt_txt);
                 this.daysList.push(new WeatherDay(date, dayWeatherList));
                 data.list.splice(0, dayWeatherList.length);
