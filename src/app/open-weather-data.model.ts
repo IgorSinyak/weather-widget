@@ -10,13 +10,18 @@ class WeatherCity {
     country: string;
 }
 
-class WeatherTime {
+export class WeatherTime {
     dt_txt: string;
     dateObj: Date;
     weather: Array<WeatherMain>;
+
+    constructor(date: Date, weather: Array<WeatherMain>) {
+        this.dateObj = date;
+        this.weather = weather;
+    }
 }
 
-class WeatherMain {
+export class WeatherMain {
     temp: number;
     temp_min: number;
     temp_max: number;

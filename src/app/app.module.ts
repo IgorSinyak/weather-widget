@@ -8,6 +8,7 @@ import { WeatherListComponent } from './weather-list/weather-list.component';
 import { WeatherListItemComponent } from './weather-list-item/weather-list-item.component';
 
 import { WeatherIconUrlPipe } from './pipes/weather-icon-url.pipe';
+import { TemperaturePipe } from './pipes/temperature.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { WeatherIconUrlPipe } from './pipes/weather-icon-url.pipe';
     WidgetComponent,
     WeatherListComponent,
     WeatherListItemComponent,
-    WeatherIconUrlPipe
+    WeatherIconUrlPipe,
+    TemperaturePipe
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,11 @@
-{{day.date | date:'EEEE, MMMM d'}}
-<div *ngFor="let weatherTime of day.weatherList" class="time-item">
-    <img src="{{weatherTime.weather[0].icon | weatherIconUrl}}"/>
-    {{weatherTime.dateObj | date: 'HH:mm'}}
+<div class="day-title weather-cell">{{day.date | date:'EEEE, MMMM d'}}</div>
+<div *ngFor="let weatherTime of day.weatherList" class="time-item weather-cell">
+    <div *ngIf="weatherTime.weather; else emptyInfoBlock">
+        <div class="weather-info">
+            <img src="{{weatherTime.weather[0].icon | weatherIconUrl}}"/>{{weatherTime.main.temp | temperature}}
+        </div>
+    </div>
+    <ng-template #emptyInfoBlock>
+        <div class="weather-info empty-info">N/A</div>
+    </ng-template>
 </div>

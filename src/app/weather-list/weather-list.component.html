@@ -1,4 +1,10 @@
 <ul class="days-list">
+    <li class="time-column">
+        <div class="day-title">Time</div>
+        <div *ngFor="let weatherTime of daysList[0].weatherList" class="time-cell">
+            <div class="time-label">{{weatherTime.dateObj | date: 'HH:mm'}}</div>
+        </div>
+    </li>
     <li *ngFor="let day of daysList">
         <weather-list-item [day]="day"></weather-list-item>            
     </li>

@@ -1,9 +1,13 @@
-.days-list {
-    display: flex;
-    justify-content: space-between;
+.widget-wrapper {
+    font-family: sans-serif;
+    border: 1px solid #999;
+    border-radius: 10px;
+    overflow: hidden;
     
-    .time-item {
-        display: flex;
-        align-items: center;
+    .header-line {
+        background-color: #999;
+        margin: 0;
+        padding: 20px 30px;
+        color: #fff;
     }
 }

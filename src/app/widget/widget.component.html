@@ -1,13 +1,4 @@
-<div *ngIf="weatherData">
-    <h2>{{weatherData.city.name}}, {{weatherData.city.country}}</h2>
-    <!--<ul class="days-list">
-        <li *ngFor="let day of daysList">
-            {{day.date | date:'EEEE, MMMM d'}}
-            <div *ngFor="let weatherTime of day.weatherList" class="time-item">
-                <img src="{{'http://openweathermap.org/img/w/' + weatherTime.weather[0].icon + '.png'}}"/>
-                {{weatherTime.dateObj | date: 'HH:mm'}}
-            </div>            
-        </li>
-    </ul>-->
+<div *ngIf="weatherData" class="widget-wrapper">
+    <h2 class="header-line">{{weatherData.city.name}}, {{weatherData.city.country}}</h2>
     <weather-list [daysList]="daysList"></weather-list>
 </div>

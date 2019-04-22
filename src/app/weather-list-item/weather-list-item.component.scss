@@ -1,0 +1,27 @@
+.weather-cell {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+
+    &.day-title {
+        padding: 10px;
+        background-color: #ddd;
+    }
+    
+    &.time-item {
+        color: #999;
+        border-bottom: 1px solid #ccc;
+        min-height: 51px;
+    }
+
+    .weather-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .empty-info {
+        line-height: 50px;
+    }
+}
+

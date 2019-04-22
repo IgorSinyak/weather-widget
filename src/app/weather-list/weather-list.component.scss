@@ -1,0 +1,27 @@
+.days-list {
+    display: flex;
+    padding: 0 30px;
+    list-style-type: none;
+    
+    li {
+        width: 16%;
+
+        &.time-column {
+            width: 10%;
+
+            .day-title {
+                padding: 10px;
+                background-color: #ddd;
+            }
+
+            .time-cell {
+                height: 51px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                background-color: #ddd;
+            }
+        }
+    }
+}

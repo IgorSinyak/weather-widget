@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OpenWeatherModel, WeatherDay } from '../open-weather-data.model';
+import { OpenWeatherModel, WeatherDay, WeatherTime } from '../open-weather-data.model';
 
 @Component({
     selector: 'weather-widget',
@@ -13,8 +13,7 @@ export class WidgetComponent implements OnInit {
     weatherData: OpenWeatherModel;
     daysList: Array<WeatherDay> = [];
 
-    constructor(private httpClient: HttpClient) {
-    }
+    constructor(private httpClient: HttpClient) {}
 
     ngOnInit() {
         this.getCoords();
@@ -25,7 +24,7 @@ export class WidgetComponent implements OnInit {
             (pos) => { this.getWeatherData(pos.coords.latitude, pos.coords.longitude) },
             (err) => { console.error(err.message) },
             {
-                enableHighAccuracy: false,
+                enableHighAccuracy: true,
                 timeout: 5000,
                 maximumAge: 0
             }
@@ -43,6 +42,14 @@ export class WidgetComponent implements OnInit {
                 this.daysList.push(new WeatherDay(date, dayWeatherList));
                 data.list.splice(0, dayWeatherList.length);
             }
+            this.fillFirstDay();
         })
+    }
+
+    fillFirstDay() {
+        while(this.daysList[0].weatherList.length < 8) {
+            let prevTime = new Date(this.daysList[0].weatherList[0].dateObj.valueOf() - 3 * 60 * 60 * 1000);
+            this.daysList[0].weatherList.unshift(new WeatherTime(prevTime, null));
+        }
     }
 }
