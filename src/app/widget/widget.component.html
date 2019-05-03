@@ -1,4 +1,4 @@
 <div *ngIf="weatherData" class="widget-wrapper">
     <h2 class="header-line">{{weatherData.city.name}}, {{weatherData.city.country}}</h2>
-    <weather-list [daysList]="daysList"></weather-list>
+    <app-weather-list [daysList]="daysList"></app-weather-list>
 </div>
